@@ -1,0 +1,203 @@
+In C++ , variables contain garbage values before their initialisation
+
+Only float and double can hold decimal numbers
+
+In C and C++, the char data type represents a single character, and it can only hold one character at a time. When you declare a char variable, you can only assign it a single character literal or a single character value.
+
+char ch = 'ab' is wrong.
+
+In C++ , when we print value of boolean , it prints either 0 or 1 and not true or false.
+
+In C++ , if a double value does not contain any decimal value only integer will be printed.
+
+5/9 -> as both numerator and denominator are integers the output is also an integer
+
+5.0/9 -> float/int -> float as output
+
+double/int -> double as output
+
+DIFFERENCE BETWEEN FLOAT & DOUBLE
+
+In C++, "float" and "double" are data types used to represent floating-point numbers, which are numbers with a decimal point or numbers that can have fractional parts. The main differences between "float" and "double" in C++ are as follows:
+
+Precision: "Float" in C++ is a single-precision floating-point number, which typically has a precision of 6-7 decimal digits. "Double" in C++ is a double-precision floating-point number, which typically has a precision of 15-16 decimal digits. This means that "double" can represent larger and more precise numbers compared to "float".
+
+Storage Size: "Float" in C++ usually occupies 4 bytes (32 bits) of memory, while "double" in C++ usually occupies 8 bytes (64 bits) of memory. This means that "double" requires more memory compared to "float".
+
+Range: "Double" in C++ has a larger range compared to "float", which means it can represent larger and smaller numbers with higher accuracy compared to "float".
+
+Default Type: In C++, by default, literal floating-point numbers without any suffix are considered to be of type "double". For example, 3.14 is of type "double". If you want to use a "float" literal, you can add the 'f' or 'F' suffix to the number, such as 3.14f.
+
+Performance: "Float" operations may be faster than "double" operations on some systems because they require less memory and may be optimized for certain hardware architectures. However, this can vary depending on the specific system and compiler optimizations, and the performance difference may not always be significant.
+
+
+--> MODULO (%) operator cannot be used with double or float
+
+The modulo operator, denoted by the percentage symbol % in many programming languages, is typically used for finding the remainder of an integer division operation. It returns the remainder after dividing one integer by another.
+
+The reason why the modulo operator cannot be used directly with floating-point or double precision numbers is that these types of numbers are represented with limited precision in most programming languages due to the inherent limitations of floating-point arithmetic. Floating-point numbers are stored as approximations of real numbers, and their representation may not be exact due to rounding errors.
+
+When performing modulo operation with floating-point or double precision numbers, the result may not be accurate due to these rounding errors. This can lead to unexpected behavior and incorrect results. For example, consider the following Python code:
+
+a = 10.5
+b = 3.2
+result = a % b
+print(result)
+
+One might expect the result to be 1.3 (which is the remainder of 10.5 / 3.2). However, due to the limitations of floating-point arithmetic, the actual result may be something like 1.2999999999999998 due to rounding errors, which is not the desired result.
+
+PRE-INCREMENT & POST INCREMENT
+
+In C++, pre-increment and post-increment are two different ways to increment the value of a variable. The main difference between them is when the increment operation takes place.
+
+Pre-increment (++x): In pre-increment, the value of the variable is incremented before its current value is used in an expression.
+
+Example:
+
+int x = 5;
+int y = ++x;  // pre-increment
+
+// Output
+// x = 6
+// y = 6
+
+In the above example, the value of x is incremented by 1 before it is assigned to y. So both x and y have the value 6 after the operation.
+
+Post-increment (x++): In post-increment, the value of the variable is incremented after its current value is used in an expression.
+
+int x = 5;
+int y = x++;  // post-increment
+
+// Output
+// x = 6
+// y = 5
+
+In the above example, the value of x is assigned to y before it is incremented by 1. So y gets the original value of x (5) and x is then incremented to 6.
+
+In summary, the main difference between pre-increment and post-increment is the order in which the increment operation takes place relative to the expression that uses the variable. Pre-increment increments the value before it is used in an expression, while post-increment increments the value after it is used in an expression.
+
+BREAK & CONTINUE
+
+In C++, break and continue are control flow statements used to alter the normal execution of loops. They are used within loops to control the flow of execution based on certain conditions. The main differences between break and continue in C++ are as follows:
+
+break: The break statement is used to immediately exit a loop and skip the remaining iterations. It is typically used to prematurely terminate a loop based on a condition. When a break statement is encountered inside a loop, the loop is terminated, and the control is transferred to the next statement outside the loop.
+
+Example 1: Using break in a for loop to terminate early based on a condition
+
+for (int i = 1; i <= 5; i++) {
+    if (i == 3) {
+        break;  // Terminates the loop when i is 3
+    }
+    cout << i << " ";
+}
+// Output: 1 2
+
+Example 2: Using break in a while loop to exit based on user input
+
+while (true) {
+    char ch;
+    cout << "Enter a character (q to quit): ";
+    cin >> ch;
+    if (ch == 'q') {
+        break;  // Terminates the loop when user enters 'q'
+    }
+    // Do something with the input character
+}
+
+Example 3: Using break in a nested loop to terminate both loops simultaneously
+
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i * j == 6) {
+            break;  // Terminates both loops when i * j is 6
+        }
+        cout << i * j << " ";
+    }
+}
+// Output: 1 2 3 4 5
+
+continue: The continue statement is used to skip the current iteration of a loop and move on to the next iteration without executing the remaining statements in the loop body. It is typically used to skip certain iterations based on a condition, but the loop continues to run.
+
+Example 1: Using continue in a for loop to skip odd numbers
+
+for (int i = 1; i <= 5; i++) {
+    if (i % 2 == 1) {
+        continue;  // Skips odd numbers
+    }
+    cout << i << " ";
+}
+// Output: 2 4
+
+Example 2: Using continue in a while loop to skip negative numbers
+
+int num;
+while (true) {
+    cout << "Enter a number (0 to quit): ";
+    cin >> num;
+    if (num == 0) {
+        break;  // Exits the loop when user enters 0
+    }
+    if (num < 0) {
+        continue;  // Skips negative numbers
+    }
+    // Do something with the positive input number
+}
+
+Example 3: Using continue in a nested loop to skip certain iterations
+
+for (int i = 1; i <= 3; i++) {
+    for (int j = 1; j <= 3; j++) {
+        if (i == j) {
+            continue;  // Skips iterations where i and j are equal
+        }
+        cout << i * j << " ";
+    }
+}
+// Output: 2 3 4 6
+
+DIFFERENCE BETWEEN cin & cin.get()
+
+cin and cin.get() are both input operations in C++ used to read data from the standard input (usually the keyboard) into a C++ program. However, there are some differences between them:
+
+Input Buffer Handling: cin reads input from the standard input stream, but it leaves the newline character (\n) in the input buffer. This newline character can cause issues when reading subsequent input using cin. On the other hand, cin.get() reads a single character from the input stream, including any whitespace characters (like newline), and removes it from the input buffer. This makes cin.get() more suitable for reading individual characters or handling whitespace characters explicitly.
+
+Reading Strings: cin is used to read strings until it encounters whitespace (e.g., space, tab, newline). It treats whitespace as a delimiter, and by default, it skips leading whitespace characters. cin.get() can be used to read a complete line of text, including whitespace characters, until it encounters a newline character (\n) or a specified delimiter. This makes cin.get() more suitable for reading entire lines of text or handling whitespace characters as part of the input.
+
+Function Signature: cin is an object of the istream class, while cin.get() is a member function of the istream class in C++. This means that cin.get() is a specific member function of the istream class, providing more fine-grained control over input operations.
+
+Here's an example illustrating the difference between cin and cin.get():
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char c1, c2;
+    string s;
+
+    // Using cin
+    cout << "Enter two characters separated by a space: ";
+    cin >> c1 >> c2; // Reads two characters separated by a space
+    cout << "c1 = " << c1 << ", c2 = " << c2 << endl;
+
+    // Using cin.get()
+    cin.ignore(); // Ignore any remaining characters in the input buffer
+    cout << "Enter a string with spaces: ";
+    cin.get(); // Reads a single character, including whitespace
+    getline(cin, s); // Reads a complete line of text, including whitespace
+    cout << "s = " << s << endl;
+
+    return 0;
+}
+
+In this example, cin is used to read two characters separated by a space, while cin.get() is used to read a string with spaces, including whitespace characters. Note the use of cin.ignore() to clear any remaining characters from the input buffer before using cin.get() to read a character.
+
+
+ARRAYS
+
+int b[5];
+cout<<b<<endl;
+
+This will print the address of the starting element
+
+sizeof operator
+gives the size of variable or datatype in terms of bytes.

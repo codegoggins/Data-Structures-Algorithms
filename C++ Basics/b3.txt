@@ -1,0 +1,127 @@
+
+<----------------------------------TYPECASTING---------------------------------------------->
+
+In C++, data type conversions can occur automatically or explicitly, depending on the context and the compatibility of the data types involved. Automatic data type conversion, also known as type coercion or implicit conversion, is performed by the compiler without the programmer explicitly requesting it. Explicit data type conversion, also known as type casting, is done explicitly by the programmer using type conversion operators or functions.
+
+Here's a detailed explanation of data type conversions in C++:
+
+Automatic Conversion (Type Coercion):
+Promotion: Smaller data types (e.g., char, short, int) are automatically promoted to larger data types (e.g., int, long, float, double) if they are involved in an expression with larger data types. For example, char is promoted to int when used in arithmetic operations with int or larger data types.
+Demotion: Larger data types are automatically demoted to smaller data types if they are assigned to a variable of a smaller data type. This may result in loss of data or precision. For example, assigning a double value to an int variable will result in the fractional part being truncated.
+Explicit Conversion (Type Casting):
+Static Cast: This is a common and general-purpose type casting operator that allows the programmer to explicitly convert between compatible data types. It is checked by the compiler at compile-time and does not perform any runtime checks. However, it may result in undefined behavior if the conversion is not valid.
+Dynamic Cast: This is a type casting operator used in the context of inheritance and polymorphism. It is used to safely downcast from a base class pointer or reference to a derived class pointer or reference. It performs a runtime check to ensure that the conversion is valid, and it returns a null pointer if the conversion fails.
+Const Cast: This is a type casting operator used to add or remove the const-qualifier from a variable. It is used to modify the const-ness of a variable, but it should be used with caution to avoid violating const-correctness.
+Reinterpret Cast: This is a type casting operator used to reinterpret the binary representation of an object of one type as an object of another type. It is a low-level and unsafe type casting operation that should be used with extreme caution, as it can result in undefined behavior.
+Conversions Not Allowed:
+Incompatible Data Types: Conversions between incompatible data types, such as converting a non-numeric type to a numeric type, or converting a pointer to a non-related type, are not allowed and will result in a compilation error.
+Ambiguous Conversions: If there are multiple possible conversions for a given context, the compiler may not be able to determine which conversion to apply, resulting in an ambiguity error.
+Loss of Data or Precision: Conversions that result in loss of data or precision, such as converting a floating-point value to an integer type, may require explicit casting to avoid loss of information.
+In summary, C++ allows for automatic and explicit data type conversions, including type coercion and type casting. Automatic conversion occurs implicitly by the compiler, while explicit conversion is done explicitly by the programmer using type casting operators or functions. However, not all conversions are allowed, and the programmer should be careful to avoid ambiguous conversions or loss of data or precision during type conversions.
+
+----->Implicit Type Casting (Type Coercion):
+
+Integer Promotion:
+
+int num1 = 10;
+double num2 = 3.14;
+double result = num1 + num2; // Implicit conversion of 'num1' to double before addition
+
+In this example, the integer num1 is implicitly promoted to a double before being added to num2, which is a double. The result of the addition is also a double.
+
+Character Promotion:
+char ch = 'A';
+int num = ch; // Implicit conversion of 'ch' to int
+
+In this example, the character ch is implicitly converted to an integer (int) when assigned to the variable num. The ASCII value of the character 'A' is assigned to num.
+
+Boolean Promotion
+bool flag = true;
+int num = flag; // Implicit conversion of 'flag' to int
+
+In this example, the boolean value flag is implicitly converted to an integer (int). The value true is converted to 1 and the value false is converted to 0.
+
+---->Explicit Type Casting (Type Casting Operators):
+
+->Static Cast:
+
+double num1 = 3.14;
+int num2 = static_cast<int>(num1); // Explicit conversion of 'num1' to int
+
+In this example, the num1 variable of type double is explicitly cast to an int using the static_cast operator. The value of num1 is truncated to an integer, and the result is stored in the num2 variable.
+
+->Const Cast:
+
+const int num1 = 10;
+int num2 = const_cast<int>(num1); // Explicit conversion of 'num1' to int
+
+In this example, the num1 variable of type const int is explicitly cast to an int using the const_cast operator. The const qualifier is removed, allowing the value of num1 to be assigned to num2.
+
+->Reinterpret Cast:
+int num1 = 100;
+float num2 = reinterpret_cast<float>(num1); // Explicit reinterpretation of 'num1' as float
+
+In this example, the num1 variable of type int is explicitly cast to a float using the reinterpret_cast operator. The binary representation of num1 is interpreted as a float, and the resulting value is stored in the num2 variable.
+
+Note: Explicit type casting should be used with caution, as it can result in undefined behavior if the conversion is not valid or leads to loss of data or precision. It is important to understand the implications of type casting and use it judiciously.
+
+Converting by assignment: 
+
+This is done by explicitly defining the required type in front of the expression in parenthesis. This can be also considered as forceful casting.
+
+Syntax:
+(type) expression
+
+where type indicates the data type to which the final result is converted
+
+double x = 1.2;
+  
+// Explicit conversion from double to int
+int sum = (int)x + 1;
+
+<--------------------------------DATA TYPES IN C++------------------------------------------------->
+
+C++ supports several different data types, each with its own range of values. Here are some of the commonly used data types in C++ and their ranges:
+
+----> Integers: Integers represent whole numbers, both positive and negative, without any decimal points. There are several integer data types in C++ with different ranges, including:\
+
+int: Typically 4 bytes (32 bits) on most systems. Range: -2,147,483,648 to 2,147,483,647.
+unsigned int: Typically 4 bytes (32 bits) on most systems. Range: 0 to 4,294,967,295.
+
+short: Typically 2 bytes (16 bits) on most systems. Range: -32,768 to 32,767.
+unsigned short: Typically 2 bytes (16 bits) on most systems. Range: 0 to 65,535.
+
+long: Typically 4 bytes (32 bits) on most systems. Range: -2,147,483,648 to 2,147,483,647.
+unsigned long: Typically 4 bytes (32 bits) on most systems. Range: 0 to 4,294,967,295.
+
+long long: Typically 8 bytes (64 bits) on most systems. Range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+
+unsigned long long: Typically 8 bytes (64 bits) on most systems. Range: 0 to 18,446,744,073,709,551,615.
+
+-----> Floating-Point Numbers: Floating-point numbers represent numbers with decimal points or numbers in scientific notation. There are two main floating-point data types in C++:
+
+float: Typically 4 bytes (32 bits) on most systems. Range: Approximately ±1.2 x 10^-38 to ±3.4 x 10^38, with 7 digits of precision.
+
+double: Typically 8 bytes (64 bits) on most systems. Range: Approximately ±2.2 x 10^-308 to ±1.8 x 10^308, with 15 digits of precision.
+
+-----> Characters: Characters represent individual characters, such as letters or symbols, and are denoted using single quotes in C++. There are two main character data types in C++:
+
+char: Typically 1 byte (8 bits) on most systems. Represents a single character, such as 'A', 'a', or '@', using the ASCII or Unicode encoding standard.
+
+
+-----> Boolean: Boolean data type represents a boolean value, which can be either true or false. In C++, the bool data type is used to represent boolean values, where true represents true and false represents false. The size of a bool is typically 1 byte (8 bits) on most systems, although the standard does not specify a specific size.
+
+Others: C++ also supports other data types such as wchar_t for representing wide characters, long double for higher precision floating-point numbers, and user-defined data types such as struct and class that allow you to create custom data types.
+
+It's important to note that the exact range and size of these data types may vary depending on the system and compiler being used, as they are implementation-dependent. You can use the <limits> header in C++ to determine the exact range and size of different data types on your specific system.
+
+
+DIFFERENCE BETWEEN COMPILE TIME AND RUN TIME IN C++
+
+Compile time and run time are two concepts in computer programming that refer to different stages of software development and execution:
+
+Compile time: Compile time is the period during which the source code of a program is converted into machine code or bytecode by a compiler. It is an early stage in the software development process, typically occurring before the program is executed. During compile time, the compiler checks the syntax and semantics of the source code, resolves references to external libraries or functions, and generates executable code or intermediate code that can be executed by a computer.
+
+Run time: Run time, also known as execution time, is the period during which a compiled program is executed by a computer. It is the phase when the program is actually running and performing its intended tasks. During run time, the program is loaded into memory, and its instructions are executed by the computer's processor. Input data is processed, output is generated, and the program's behavior is observed. Run time is the stage where the program's logic is executed and its intended functionality is realized.
+
+In summary, compile time is the stage when the source code is translated into machine code, and run time is the stage when the compiled program is actually executed by a computer. Compile time is focused on checking and translating the code, while run time is focused on executing the code and producing results. Errors or issues that occur during compile time are called compile-time errors, while errors or issues that occur during run time are called run-time errors.

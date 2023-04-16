@@ -1,0 +1,49 @@
+DIFFERENCE BETWEEN C AND C++
+
+C and C++ are both programming languages, but they have some key differences:
+
+Object-oriented programming (OOP) features: C++ is an object-oriented programming language, which means it supports OOP features like classes, objects, inheritance, and polymorphism. C, on the other hand, is a procedural programming language and does not have built-in support for OOP.
+
+Abstraction and encapsulation: C++ allows for greater abstraction and encapsulation through features like classes, objects, and access specifiers (e.g., public, private, protected). This allows for better organization and modularization of code. C, on the other hand, does not have these features, and code organization is typically done through functions and global variables.
+
+Syntax: While C++ was designed to be largely compatible with C, there are some differences in syntax between the two languages. For example, C++ supports features like function overloading, references, and namespaces, which are not present in C.
+
+Memory management: C++ provides features like constructors, destructors, and RAII (Resource Acquisition Is Initialization) for more advanced memory management and automatic memory cleanup. C, on the other hand, relies on manual memory management through functions like malloc() and free().
+
+Standard Libraries: C++ has a more extensive standard library compared to C, including the Standard Template Library (STL) for containers and algorithms, and the C++ Standard Library for I/O, strings, and other utilities. C, on the other hand, has a smaller standard library with fewer built-in functions and data structures.
+
+Backward compatibility: C++ is designed to be backward compatible with C, which means that valid C code can often be compiled and run in a C++ environment with little or no modification. However, the reverse is not always true, as C++ introduces additional features and syntax that may not be compatible with C compilers.
+
+Overall, C++ is a superset of C, meaning that it includes all of the features of C and adds additional features for object-oriented programming and other advanced programming concepts. C++ is often considered a more powerful and complex language compared to C, with a steeper learning curve, but it also provides greater flexibility and expressiveness in writing modern software applications.
+
+
+WHAT IS OBJECT ORIENTED PROGRAMMING AND WHAT ARE ITS REAL LIFE USES ?
+
+
+Object-oriented programming (OOP) is a programming paradigm that uses objects, which are instances of classes, to represent and manipulate data and behavior in software applications. In OOP, data and behavior (i.e., functions or methods) are encapsulated together in objects, allowing for a more modular and organized approach to software development.
+
+Some key concepts of object-oriented programming include:
+
+Classes: Classes are blueprints or templates that define the structure and behavior of objects. They encapsulate data and methods that operate on that data. A class can be thought of as a blueprint for creating objects of a particular type.
+
+Objects: Objects are instances of classes. They represent specific instances of data and behavior defined by the class. Objects can be created from a class and can be used to interact with the data and methods defined by the class.
+
+Encapsulation: Encapsulation is the process of hiding the internal details of an object and exposing only what is necessary. This helps to achieve data abstraction and provides a clear separation between the implementation details and the external interface of an object.
+
+Inheritance: Inheritance allows classes to inherit properties and methods from other classes. It allows for code reuse and promotes a hierarchical organization of classes with a parent-child relationship.
+
+Polymorphism: Polymorphism allows objects of different classes to be treated as if they are of the same type. This promotes code flexibility and extensibility, as objects can be used interchangeably, regardless of their specific class.
+
+Real-life uses of object-oriented programming are numerous and include:
+
+Software development: OOP is widely used in the development of software applications, ranging from desktop applications, web applications, mobile apps, games, and more. OOP provides a modular and organized approach to software development, allowing for efficient code organization, code reuse, and maintainability.
+
+System design: OOP is used in the design of complex systems, such as operating systems, embedded systems, and networking systems, where the organization and management of data and behavior are crucial.
+
+Object modeling: OOP is used in modeling real-world objects and their interactions in various domains such as finance, healthcare, logistics, and scientific simulations. OOP allows for modeling complex relationships and interactions between objects in a structured and organized manner.
+
+Object-relational mapping (ORM): OOP is used in ORM frameworks, which provide a way to map objects in object-oriented code to relational databases. This allows for seamless integration of object-oriented code with databases for data storage and retrieval.
+
+User interface design: OOP is used in designing user interfaces for desktop applications, web applications, and mobile apps, where objects such as buttons, forms, and menus can be modeled as objects with properties and methods.
+
+Overall, OOP provides a powerful and flexible paradigm for software development, allowing for efficient code organization, code reuse, and modularity, making it widely used in a variety of real-life applications.
