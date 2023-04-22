@@ -1,0 +1,7 @@
+strlen -> calculates length of string
+strcmp(str1,str2) 
+-> returns 0 if both string are same , o/w non-zero
+strcpy(dest,src)
+-> copies content of src into dest
+strncpy(dest,src,n)
+->copies first n characters from src to dest

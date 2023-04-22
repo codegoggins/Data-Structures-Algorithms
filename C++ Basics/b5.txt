@@ -1,0 +1,186 @@
+--> POINTERS
+Variables which store address of other variables
+
+&i -> gives the address of if
+
+int i = 10;
+int * p = &i;
+-> We can increase value of i in two ways :
+i++;
+OR 
+(*p)++;
+
+p is a pointer to an integer which stores address of if
+
+float f = 10.2;
+float *pf = &f;
+-> To access value of f --> cout<<*pf<<endl; (dreferencing)
+
+
+--> POINTERS & ARRAYS
+
+int arr[10];
+cout<<arr<<&arr[0]<<endl;
+--> Both print the same address i.e the address of 0th element or we can say the address of array arr 
+
+*(arr+1) -> We will get arr[1]
+
+-> We can get the ith element like this : *(arr+i)
+
+-> Difference in Normal Pointer & Array Pointer
+int arr[10];
+sizeof(arr) -> 40 i.e the array size
+
+int*p;
+sizeof(p) -> 8 i.e the size of pointer variables
+
+-> REFERENCE VARIABLE
+
+int i = 10;
+int &j = i;
+cout<<i<<j<<endl    -> Both have the same value
+&j is just a variable that has the same value as i and points to i , any change in j will also affect i & vice versa
+j is reference to an existing memory and is not creating new memory to store int i.
+
+
+int i;
+i=10;
+
+-> We CANNOT initialize reference variable like this
+int&j;
+j = 10;
+
+----> DYNAMIC MEMORY ALLOCATION
+
+STACK & HEAP MEMORY
+
+Allocation: Stack memory is allocated automatically and is managed by the compiler. It is a region of memory that is part of the program's call stack, and it grows and shrinks automatically as functions are called and return. Heap memory, on the other hand, is allocated manually by the programmer using dynamic memory allocation functions, such as "malloc" or "new", and must be explicitly deallocated to avoid memory leaks.
+
+Memory management: Stack memory is managed automatically by the compiler, and memory is allocated and deallocated in a last-in, first-out (LIFO) order. It is typically used for storing local variables, function call frames, and temporary data. Heap memory, on the other hand, must be managed explicitly by the programmer, and memory can be allocated and deallocated in any order. It is typically used for storing data that needs to persist beyond the lifetime of a function or for data that needs to be dynamically resized.
+
+Lifetime: Stack memory has a limited lifetime and is associated with the scope of a function or a block of code. Once the function or block of code completes execution, the stack memory is automatically deallocated. Heap memory, on the other hand, has a longer lifetime and persists until explicitly deallocated by the programmer, even across function or block boundaries.
+
+Size and Usage: Stack memory is limited in size and usually smaller compared to heap memory. It is typically used for storing small, short-lived data. Heap memory, on the other hand, is usually larger and can be used for storing more significant amounts of data, such as dynamically allocated arrays, objects, or data structures.
+
+Access: Access to stack memory is generally faster than access to heap memory because stack memory is located in the same thread as the executing code and is allocated in a contiguous block of memory. Heap memory, on the other hand, may be scattered throughout the memory space and may require additional overhead for memory management.
+
+Risk of Memory Issues: Stack memory is less prone to memory-related issues, such as memory leaks and buffer overflows, because it is managed automatically by the compiler and has a limited lifetime. Heap memory, on the other hand, requires careful manual management, and improper allocation or deallocation can lead to memory leaks or other memory-related issues.
+
+Whenever we allocate memory , there are two types of memory one is stack memory and the other is heap memory
+
+Stack Memory has small size & in this static allocation is done
+Heap Memory has large size & here dynamic memory allocation is done
+
+int n;
+int arr[n];  //POOR WAY TO DECLARE AN ARRAYS AS MEMORY WON'T KNOW HOW MUCH TO allocate
+
+Compiled
+cin>>n  //IF VALUE OF n ENTERED IS VERY LARGE THEN SYSTEM WON'T KNOW HOW MUCH MEMORY WE NEED ON STACK 
+
+---> HEAP MEMORY & DYNAMIC ALLOCATION
+
+
+If we have to allocate memory in Heap , we have to use new keyword
+
+int*p = new int;
+*p = 10;
+
+The new int is stored in Heap (4 Byte) & *p is stored in stack (8 Byte)
+
+int * arr = new int[50]
+arr - stores the address of 0th element of array
+arr[0] -> means *(arr + 0) i.e the first element
+Heap = 200 bytes
+Stack = 8 bytes
+
+
+NOTE:
+When we allocate memory dynamically , memory is not released automatically on the basis of scope of variable.Manual release of memory is required.
+In static memory allocation, memory is released automatically on the basis of scope
+
+To clear the memory dynamically created , the delete keyword is used
+int* p = new int;
+delete p;
+
+In case of ARRAYS
+int* p = new int[100];
+delete []p;
+
+DYNAMIC ALLOCATION OF 2D ARRAYS :
+We create an array of integer POINTERS
+
+int**arr = new int*[100];
+
+Then  we need to create each row
+arr[0] = new int[20];
+
+intn,m;
+cin>>n>>m;
+int **arr = new int*[m]
+for(int i=0;i<m;i++){
+    arr[i] = new int[n];
+    for(int j=0;j<n;j++){
+        cin>>arr[i][j];
+    }
+}
+
+for(int i=0;i<m;i++){
+    delete [] arr[i];
+}
+
+delete [] arr;
+
+
+
+----------> MACROS  #define
+Eg : 
+#define PI 3.14
+#define SQ(x) x*x
+#define MUL(a,b) a*b
+----------> Global Variables : A variable that is used by all functions is called a global variable.But using Global variables is a bad practice
+
+
+CONSTANT VARIABLES
+
+--> Once we have declared them , they cannot be changed
+
+BOTH ARE SAME
+const int i = 10;
+int const i = 10;
+
+Constant reference from non constant int
+
+int j = 12;
+const int&k = j;
+k++; //ERROR
+j++; //NO ERROR
+
+Doing j++ will change value of both j and k , but doing k++ we will get an error.
+
+Why doing j++ w don't get error even thought it changes the value of both j and k?
+--> Because storage does not becomes constant , the path does.Changing value of j through k++ path is bloacked but not through j++
+
+//BOTH READ PATHS & NOT WRITE
+int const j =10;
+int const &k = j;
+
+//NOT ALLOWED
+int const j = 12; //ONLY READ
+int& k = j;
+
+j value can only be read , but we are assigning the value to reference variable k which can be changed which is wrong
+
+YOU CANNOT STORE VALUE OF A CONST VALUE IN A NORMAL POINTER
+
+int const i = 10;
+int *p = &i;//ERROR
+
+THE POINTER VARIABLE SHOULD BE A CONST TOO
+
+int const i = 10;
+int const *p = &i;
+
+ALLOWED
+int j = 10;
+int const *p = &j;
+
